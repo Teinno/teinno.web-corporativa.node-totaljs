@@ -1,2 +1,5 @@
 /tmp/*
-
+/themes/default/public/vendor/*
+/themes/default/public/figures/*
+/themes/default/public/js/*
+/themes/default/public/css/*
