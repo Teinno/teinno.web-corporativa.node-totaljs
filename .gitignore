@@ -3,3 +3,6 @@
 /themes/default/public/figures/*
 /themes/default/public/js/*
 /themes/default/public/css/*
+/themes/default/public/img/*
+/themes/default/public/img-temp/*
+/themes/default/public/media-temp/*

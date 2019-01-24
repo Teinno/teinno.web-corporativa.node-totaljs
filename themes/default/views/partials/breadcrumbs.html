@@ -1,0 +1,5 @@
+<ul class="breadcrumb">
+	@{foreach m in sitemap()}
+		<li><a href="@{m.url}">@{if index === 0}<i class="fa fa-home"></i>@{fi}@{m.name}</a></li>
+	@{end}
+</ul>
