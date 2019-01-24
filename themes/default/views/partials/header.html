@@ -30,9 +30,28 @@
 				<div class="collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-5--lg g-mr-40--lg" id="navBar">
 					<ul class="navbar-nav text-uppercase g-pos-rel g-font-weight-600 ml-auto">
 						@{foreach m in global.navigations.mainmenu.children}
-							<li class="nav-item  g-mx-10--lg g-mx-15--xl @{if m.contains(url)} active @{fi}" >
-								<a href="@{m.url}" class="nav-link g-py-7 g-px-0">@{m.name}@{if m.icon}<i class="@{m.icon}"></i>@{fi}</a>
-							</li>	
+							<li class="nav-item  g-mx-10--lg g-mx-15--xl @{if m.contains(url)} active @{fi} @{if m.children.length} hs-has-mega-menu @{fi}" data-animation-in="fadeIn" data-animation-out="fadeOut" data-max-width="60%" data-position="left">
+								<a href="@{m.url}" class="nav-link g-py-7 g-px-0" aria-haspopup="true" aria-expanded="false">@{m.name}@{if m.icon}<i class="@{m.icon} @{if m.children.length} hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7 @{fi}"></i>@{fi}</a>
+								
+							  @{if m.children.length}
+								<div class="w-100 hs-mega-menu u-shadow-v11 font-weight-normal g-brd-top g-brd-primary g-brd-top-2 g-bg-white g-mt-18 g-mt-8--lg--scrolling" aria-labelledby="mega-menu-home">
+									<div class="row align-items-stretch no-gutters">
+										<!-- Home (col) -->
+										<div class="col-lg-6">
+											<ul class="list-unstyled">
+												@{foreach b in m.children}
+												<li class="dropdown-item ">
+														<a href="@{b.url}" class="nav-link">@{b.name}</a>
+												</li>	
+												@{end}
+											</ul>
+										</div>
+									</div>
+								</div>			
+							  @{fi}
+							
+							</li>
+							
 						@{end}
 					</ul>		
 				</div>
